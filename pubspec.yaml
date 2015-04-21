@@ -1,0 +1,20 @@
+name: cou_auction_house
+version: 0.1.1
+description: A polymer component that encapsulates the functionality needed for the game's auction house
+
+dependencies:
+  browser: any
+  polymer: any
+  core_elements: any
+  paper_elements: any
+  redstone: any
+  redstone_mapper: any
+  intl: any
+  pump:
+    git:
+      ref: master
+      url: git://github.com/ppvk/pump.git
+transformers:
+- redstone_mapper
+- polymer:
+    entry_points: web/index.html
