@@ -5,14 +5,14 @@ import 'imports.dart';
 @CustomTag('auction-house')
 class AuctionHouse extends PolymerElement
 {
-	String serverAddress = "http://robertmcdermot.com:8181";
+	@published String serveraddress;
 	@published List<Auction> results = toObservable([]);
 	@observable int leftSelected = 0, rightSelected = 0, dataSelected = 0;
 
 	AuctionHouse.created() : super.created()
 	{
-		bootstrapMapper();
 		//generateNewAuctions();
+		serverAddress = serveraddress;
 	}
 
 	Future postAuction(Auction auction)

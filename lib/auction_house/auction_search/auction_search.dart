@@ -5,11 +5,12 @@ import '../imports.dart';
 @CustomTag('auction-search')
 class AuctionSearch extends PolymerElement
 {
-	static String serverAddress = "http://robertmcdermot.com:8181";
-
 	@observable String searchString = '';
 
-	AuctionSearch.created() : super.created();
+	AuctionSearch.created() : super.created()
+	{
+		bootstrapMapper();
+	}
 
 	Future doSearch(Event event, var detail, InputElement textElement) async
 	{

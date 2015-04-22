@@ -7,8 +7,6 @@ class ItemDetailView extends PolymerElement
 {
 	@published Map item = {};
 
-	String serverAddress = "http://robertmcdermot.com:8181";
-
 	ItemDetailView.created() : super.created()
 	{
 		new Service(['itemDetailRequest'], (Message m) async {

@@ -16,3 +16,5 @@ export 'search_result.dart';
 
 export 'auction_buy_confirm/auction_buy_confirm.dart';
 export 'auction_search/auction_search.dart';
+
+String serverAddress;
