@@ -11,6 +11,7 @@ class AuctionHouse extends PolymerElement
 
 	AuctionHouse.created() : super.created()
 	{
+		bootstrapMapper();
 		//generateNewAuctions();
 	}
 
