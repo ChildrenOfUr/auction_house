@@ -1,3 +1,26 @@
-li {
+.nav-list-items,
+.nav-list-items li {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.nav-list-items img {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.nav-list-items li {
     cursor: pointer;
+    padding: 10px 0 10px 10px;
+    border-radius: 2px;
+}
+
+.nav-list-items li:hover {
+  background-color: #ddd;
+}
+
+.category-title {
+  font-weight: bold;
+  font-size: 20px;
 }

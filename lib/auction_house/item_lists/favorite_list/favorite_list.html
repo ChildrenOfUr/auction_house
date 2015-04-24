@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="favorite_list.css">
 
         <template if="{{results.length == 0}}">
-            <div>You may save favorite items from the search tab</div>
+            <p>You may save favorite items from the search tab.</p>
         </template>
         <template repeat="{{result in results | enumerate}}">
             <div class="resultsRow {{result.index%2==0?'odd':'even'}}" on-click="{{showDetails}}"

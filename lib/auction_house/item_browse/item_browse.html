@@ -3,11 +3,12 @@
 <polymer-element name="item-browse">
     <template>
         <link rel="stylesheet" href="item_browse.css">
+        <br>
         <template repeat="{{category in items.keys}}">
-            {{category}}
-            <ul>
+            <span class="category-title">{{category}}</span>
+            <ul class="nav-list-items">
                 <template repeat="{{item in items[category]}}">
-                    <li on-click="{{search}}">{{item}}</li>
+                    <li on-click="{{search}}"><img _src="{{item['iconUrl']}}"> {{item}}</li>
                 </template>
             </ul>
         </template>
