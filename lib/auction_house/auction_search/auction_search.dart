@@ -14,13 +14,12 @@ class AuctionSearch extends PolymerElement
 
 	Future doSearch(Event event, var detail, InputElement textElement) async
 	{
-		Map parameters = {};
-		List<Auction> results = [];
+		List<Item> results = [];
 
 		if(searchString.trim() != "")
 		{
-			parameters = {'where':"lower(item_name) LIKE lower('%$searchString%')"};
-			results = await getAuctions(parameters);
+			String response = await HttpRequest.getString('$serverAddress/getItems?name=$searchString&isRegex=true');
+			results = decode(JSON.decode(response), Item);
 		}
 
 		//broadcast the results to anyone who is listening to us

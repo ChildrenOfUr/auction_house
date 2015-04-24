@@ -1,4 +1,5 @@
 <link rel="import" href="../../../../packages/polymer/polymer.html">
+<link rel="import" href="../../../../packages/cou_toolkit/toolkit/toolkit.html">
 
 <polymer-element name="auction-buy-confirm">
     <template>
@@ -12,8 +13,8 @@
             </div>
             for {{total_cost}} currants?
             <div id="buttons">
-                <button on-click="{{buyItem}}">Yes</button>
-                <button on-click="{{dismiss}}">No</button>
+                <ur-button on-click="{{buyItem}}">Yes</ur-button>
+                <ur-button on-click="{{dismiss}}">No</ur-button>
             </div>
         </div>
     </template>

@@ -8,7 +8,7 @@
             <span class="category-title">{{category}}</span>
             <ul class="nav-list-items">
                 <template repeat="{{item in items[category]}}">
-                    <li on-click="{{search}}"><img _src="{{item['iconUrl']}}"> {{item}}</li>
+                    <li on-click="{{search}}"><img _src="{{item.iconUrl}}">{{item.name}}</li>
                 </template>
             </ul>
         </template>

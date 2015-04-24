@@ -4,11 +4,11 @@ import 'imports.dart';
 
 class SearchResult
 {
-	Auction auction;
+	Item item;
 	bool isFav = false;
 	static Map<String,String> favSaves = null;
 
-	SearchResult(this.auction)
+	SearchResult(this.item)
 	{
 		if(favSaves == null)
 		{
@@ -18,7 +18,7 @@ class SearchResult
 				favSaves = {};
 		}
 
-		if(favSaves[auction.item_name] == "true")
+		if(favSaves[item.name] == "true")
 			isFav = true;
 	}
 

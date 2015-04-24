@@ -1,4 +1,5 @@
 <link rel="import" href="../../../../../packages/polymer/polymer.html">
+<link rel="import" href="../../../../../packages/cou_toolkit/toolkit/toolkit.html">
 <link rel="import" href="../../auction_buy_confirm/auction_buy_confirm.html">
 <link rel="import" href="../item_list_style.html">
 
@@ -8,7 +9,7 @@
         <link rel="stylesheet" href="auction_result_list.css">
         <div>
             <template if="{{results.length == 0}}">
-                <div>Type your search term in the box</div>
+                <div>No Sellers :(</div>
             </template>
             <template repeat="{{result in results | enumerate}}">
                 <div class="resultsRow {{result.index%2==0?'odd':'even'}}">
@@ -31,7 +32,7 @@
                         each
                     </div>
                     <div class="buyParent column">
-                        <button on-click="{{buyConfirm}}" data-result-index="{{result.index}}">Buy</button>
+                        <ur-button on-click="{{buyConfirm}}" data-result-index="{{result.index}}">Buy</ur-button>
                     </div>
                     <div class="timing column">
                         <div class="startTime">{{result.value.since}} ago</div>

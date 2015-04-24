@@ -17,32 +17,26 @@ class FavoriteList extends PolymerElement
 			results.add(m.content);
 		});
 		new Service(['removeFavFromList'], (Message m) {
-			results.removeWhere((SearchResult result) => result.auction.item_name == m.content.auction.item_name);
+			results.removeWhere((SearchResult result) => result.item.name == m.content.item.name);
 		});
 
 		getItems();
 	}
 
 	getItems() async {
-		String whereClause = "item_name = ";
+		String regex = "(";
 		favSaves.forEach((String itemName, String isFav) {
 			if(isFav == "true")
-				whereClause += "'$itemName' OR item_name = ";
+				regex += "$itemName|";
 		});
 		//add a bogus item to the end so that we don't have a hanging OR clause
-		whereClause += "'invlaid_item1234%^^'";
+		regex += "invlaid_item)";
 
-		Map parameters = {'where':whereClause};
-		List<Auction> auctions = await AuctionSearch.getAuctions(parameters);
+		String response = await HttpRequest.getString('$serverAddress/getItems?name=$regex&isRegex=true');
+		List<Item> items = decode(JSON.decode(response), Item);
 
-		List<String> type = [];
-		auctions.forEach((Auction auction) {
-			if(!type.contains(auction.item_name))
-			{
-				type.add(auction.item_name);
-				results.add(new SearchResult(auction));
-			}
-		});
+		results.clear();
+		items.forEach((Item item) => results.add(new SearchResult(item)));
 	}
 
 	showDetails(Event event, var detail, Element target) async
@@ -59,6 +53,6 @@ class FavoriteList extends PolymerElement
 	removeFav(Event event, var detail, Element target) {
 		String itemName = target.attributes['data-item-name'];
 		SearchResult.changeFav(itemName, false);
-		results.removeWhere((SearchResult result) => result.auction.item_name == itemName);
+		results.removeWhere((SearchResult result) => result.item.name == itemName);
 	}
 }

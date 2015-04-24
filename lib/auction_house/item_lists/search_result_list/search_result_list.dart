@@ -11,15 +11,7 @@ class SearchResultList extends PolymerElement
 	{
 		new Service(['searchUpdate'], (Message m) {
 			results.clear();
-			List<Auction> initialResults = m.content;
-			List<String> type = [];
-			initialResults.forEach((Auction auction) {
-				if(!type.contains(auction.item_name))
-				{
-					results.add(new SearchResult(auction));
-					type.add(auction.item_name);
-				}
-			});
+			m.content.forEach((Item item) => results.add(new SearchResult(item)));
 		});
 	}
 
@@ -40,8 +32,8 @@ class SearchResultList extends PolymerElement
 		SearchResult.changeFav(itemName,target.checked);
 
 		if(target.checked)
-			new Message('addFavToList', results.singleWhere((SearchResult result) => result.auction.item_name == itemName));
+			new Message('addFavToList', results.singleWhere((SearchResult result) => result.item.name == itemName));
 		else
-			new Message('removeFavFromList', results.singleWhere((SearchResult result) => result.auction.item_name == itemName));
+			new Message('removeFavFromList', results.singleWhere((SearchResult result) => result.item.name == itemName));
 	}
 }
