@@ -1,0 +1,27 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+.itemFrame input[type="checkbox"] + label {
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.itemFrame input[type=checkbox] {
+	display:none;
+}
+
+.itemFrame input[type=checkbox] + label:before {
+	font-family: FontAwesome;
+}
+
+.itemFrame input[type=checkbox] + label:before {
+	content: "\f006";
+	color: #0066FF;
+}
+
+.itemFrame input[type=checkbox]:checked + label:before {
+	content: "\f005";
+	color: #33CC33;
+}

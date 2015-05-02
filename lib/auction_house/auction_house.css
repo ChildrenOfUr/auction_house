@@ -20,7 +20,8 @@
 }
 
 #topRight {
-  height: 300px;
+  min-height: 350px;
+  height: 50vh;
 }
 
 #topRight img {
@@ -56,4 +57,9 @@ core-pages {
   width: calc(100% - 4px);
   margin-top: 5px;
   margin-bottom: 10px;
+}
+
+* {
+  /* Prevent Chrome's element highlighting */
+  outline: none !important;
 }

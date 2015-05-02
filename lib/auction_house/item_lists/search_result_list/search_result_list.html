@@ -10,12 +10,11 @@
                  data-item-name="{{result.value.item.name}}">
                 <div class="itemFrame">
                     <img class="itemImage" _src="{{result.value.item.iconUrl}}">
+                    <input type="checkbox" checked?="{{result.value.isFav}}" on-change="{{changeFav}}" data-item-name="{{result.value.item.name}}" id="{{result.value.item.name}}">
+                    <label for="{{result.value.item.name}}" title="Favorite"></label>
                 </div>
                 <div class="itemText">
                     <div class="itemName">{{result.value.item.name}}</div>
-                </div>
-                <div>
-                    <input type="checkbox" checked?="{{result.value.isFav}}" on-change="{{changeFav}}" data-item-name="{{result.value.item.name}}">
                 </div>
             </div>
         </template>

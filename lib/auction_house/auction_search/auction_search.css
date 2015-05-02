@@ -1,0 +1,16 @@
+#SearchBox {
+	width: calc(100% - 5px);
+	font-size: 15px;
+	background-color: #EEE;
+	height: 20px;
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	font-family: "Lato", sans-serif;
+	margin-bottom: 5px;
+	padding: 0 0 0 3px;
+	outline: none;
+}
+
+#SearchBox:focus {
+	border: 2px solid rgba(0, 0, 0, 0.3);
+}

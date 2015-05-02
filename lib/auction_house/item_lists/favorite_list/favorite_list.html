@@ -14,11 +14,12 @@
                  data-item-name="{{result.value.item.name}}">
                 <div class="itemFrame">
                     <img _src={{result.value.item.iconUrl}} class="itemImage">
+                    <input type="checkbox" checked="true" on-click="{{removeFav}}" data-item-name="{{result.value.item.name}}" id="{{result.value.item.name}}">
+                    <label for="{{result.value.item.name}}" title="Unfavorite"></label>
                 </div>
                 <div class="itemText">
                     <div class="itemName">{{result.value.item.name}}</div>
                 </div>
-                <div on-click="{{removeFav}}" data-item-name="{{result.value.item.name}}">X</div>
             </div>
         </template>
     </template>

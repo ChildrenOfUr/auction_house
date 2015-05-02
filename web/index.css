@@ -1,0 +1,33 @@
+/* custom scrollbar styles */
+
+::-webkit-scrollbar {
+	width:8px;
+}
+
+::-webkit-scrollbar-track {
+	background:rgb(238, 238, 238);
+	border:none;
+	box-shadow:0px 0px 3px #dfdfdf inset;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color:#4b2e4c;
+	border-radius:8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color:#7b4c7c;
+}
+
+/* custom selection colors */
+
+* /deep/ ::selection {
+	background-color:#4b2e4c;
+	color:#eee;
+}
+
+/* Remove Chrome's ugly focus indicator */
+
+* /deep/ * {
+	outline: none;
+}
