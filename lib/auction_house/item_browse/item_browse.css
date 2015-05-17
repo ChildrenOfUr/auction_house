@@ -1,13 +1,13 @@
 .nav-list-items,
 .nav-list-items li {
-  list-style-type: none;
-  padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .nav-list-items img {
-  height: 24px;
-  vertical-align: middle;
-  margin-right: 5px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 .nav-list-items li {
@@ -17,10 +17,36 @@
 }
 
 .nav-list-items li:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
 .category-title {
-  font-weight: bold;
-  font-size: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    color: #4b2e4c;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.collapsed:before {
+    background-color: #4b2e4c;
+    border-radius: 10px;
+    color: #FFFFFF;
+    content: "+";
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    width: 20px;
+}
+
+.not-collapsed:before {
+    background-color: #4b2e4c;
+    border-radius: 10px;
+    color: #FFFFFF;
+    content: "-";
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    width: 20px;
 }

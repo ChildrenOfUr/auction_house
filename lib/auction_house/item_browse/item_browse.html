@@ -1,16 +1,19 @@
 <link rel="import" href="../../../../packages/polymer/polymer.html">
+<link rel="import" href="../../../../packages/core_elements/core_collapse.html">
 
 <polymer-element name="item-browse">
     <template>
         <link rel="stylesheet" href="item_browse.css">
         <br>
         <template repeat="{{category in items.keys}}">
-            <span class="category-title">{{category}}</span>
+            <div on-click="{{toggleChildren}}" class="category-title collapsed">{{category}}</div>
+            <core-collapse>
             <ul class="nav-list-items">
                 <template repeat="{{item in items[category]}}">
                     <li on-click="{{search}}"><img _src="{{item.iconUrl}}">{{item.name}}</li>
                 </template>
             </ul>
+            </core-collapse>
         </template>
     </template>
     <script type="application/dart" src="item_browse.dart"></script>

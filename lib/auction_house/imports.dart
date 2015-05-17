@@ -7,7 +7,6 @@ export 'dart:math';
 
 export 'package:polymer/polymer.dart';
 export 'package:redstone_mapper/mapper.dart' hide Range;
-export 'package:redstone_mapper/mapper_factory.dart';
 export 'package:intl/intl.dart';
 export 'package:pump/pump.dart';
 

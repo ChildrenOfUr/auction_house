@@ -1,6 +1,7 @@
 library item_browse;
 
 import '../imports.dart';
+import 'package:core_elements/core_collapse.dart';
 
 @CustomTag('item-browse')
 class ItemBrowse extends PolymerElement {
@@ -13,13 +14,14 @@ class ItemBrowse extends PolymerElement {
 
 	getItems() async {
 		String response = await HttpRequest.getString('$serverAddress/getItems');
-		List<Item> items = decode(JSON.decode(response), Item);
-		items.forEach((Item i) {
-			if(this.items.containsKey(i.category)) {
-				this.items[i.category].add(i);
+		List<Item> itemList = decode(JSON.decode(response), Item);
+		itemList.sort((Item a, Item b) => a.name.compareTo(b.name));
+		itemList.forEach((Item i) {
+			if(items.containsKey(i.category)) {
+				items[i.category].add(i);
 			}
 			else {
-				this.items[i.category] = [i];
+				items[i.category] = [i];
 			}
 		});
 	}
@@ -33,5 +35,12 @@ class ItemBrowse extends PolymerElement {
 		Map parameters = {'where':"item_name = '$itemName'"};
 		List<Auction> auctions = await AuctionSearch.getAuctions(parameters);
 		new Message('auctionSearchUpdate', auctions);
+	}
+
+	toggleChildren(Event event, var detail, Element target) {
+		CoreCollapse children = target.nextElementSibling as CoreCollapse;
+		children.toggle();
+		target.classes.toggle('collapsed');
+		target.classes.toggle('not-collapsed');
 	}
 }

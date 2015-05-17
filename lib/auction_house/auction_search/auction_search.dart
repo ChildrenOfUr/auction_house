@@ -7,10 +7,7 @@ class AuctionSearch extends PolymerElement
 {
 	@observable String searchString = '';
 
-	AuctionSearch.created() : super.created()
-	{
-		bootstrapMapper();
-	}
+	AuctionSearch.created() : super.created();
 
 	Future doSearch(Event event, var detail, InputElement textElement) async
 	{
