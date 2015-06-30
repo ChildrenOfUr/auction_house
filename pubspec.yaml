@@ -1,5 +1,5 @@
 name: cou_auction_house
-version: 0.1.6
+version: 0.1.7
 description: A polymer component that encapsulates the functionality needed for the game's auction house
 
 dependencies:
@@ -17,10 +17,6 @@ dependencies:
     git:
       ref: master
       url: git://github.com/ChildrenOfUr/cou_toolkit.git
-
-dependency_overrides:
-  analyzer: '<0.26.0'
-  args: '0.13.0'
 
 transformers:
 - redstone_mapper
