@@ -11,15 +11,15 @@ class AuctionHouse extends PolymerElement
 
 	AuctionHouse.created() : super.created()
 	{
-		//generateNewAuctions();
+		generateNewAuctions();
 		serverAddress = serveraddress;
 	}
 
-	Future postAuction(Auction auction)
-    {
+	Future postAuction(Auction auction) async {
+		String auctionJson = encode(auction);
     	return HttpRequest.request("$serverAddress/ah/create",
         			method: "POST", requestHeaders: {"content-type": "application/json"},
-        			sendData: JSON.encode(encode(auction)));
+        			sendData: auctionJson);
     }
 
 	Future generateNewAuctions() async

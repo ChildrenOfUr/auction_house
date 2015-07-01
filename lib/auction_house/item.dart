@@ -1,28 +1,7 @@
 library item;
 
-import 'imports.dart';
-
 class Item {
-	@Field()
-	String category;
-	@Field()
-	String iconUrl;
-	@Field()
-	String spriteUrl;
-	@Field()
-	String toolAnimation;
-	@Field()
-	String name;
-	@Field()
-	String description;
-	@Field()
-	int price;
-	@Field()
-	int stacksTo;
-	@Field()
-	int iconNum = 4;
-	@Field()
+	String category, iconUrl, spriteUrl, toolAnimation, name, description, style;
+	int price, stacksTo, iconNum = 4;
 	bool isContainer = false;
-
-	String style;
 }

@@ -14,7 +14,7 @@ class ItemBrowse extends PolymerElement {
 
 	getItems() async {
 		String response = await HttpRequest.getString('$serverAddress/getItems');
-		List<Item> itemList = decode(JSON.decode(response), Item);
+		List<Item> itemList = decode(response, type: const TypeHelper<List<Item>>().type);
 		itemList.sort((Item a, Item b) => a.name.compareTo(b.name));
 		itemList.forEach((Item i) {
 			if(items.containsKey(i.category)) {

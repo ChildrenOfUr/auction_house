@@ -6,9 +6,9 @@ export 'dart:async';
 export 'dart:math';
 
 export 'package:polymer/polymer.dart';
-export 'package:redstone_mapper/mapper.dart' hide Range;
 export 'package:intl/intl.dart';
 export 'package:pump/pump.dart';
+export 'package:jsonx/jsonx.dart';
 
 export 'search_result.dart';
 export 'encodes.dart';

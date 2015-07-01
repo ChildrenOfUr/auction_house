@@ -7,8 +7,8 @@ dependencies:
   polymer: any
   core_elements: any
   paper_elements: any
-  redstone_mapper: 0.2.0-beta.1
   intl: any
+  jsonx: "^2.0.0"
   pump:
     git:
       ref: master
@@ -19,6 +19,5 @@ dependencies:
       url: git://github.com/ChildrenOfUr/cou_toolkit.git
 
 transformers:
-- redstone_mapper
 - polymer:
     entry_points: web/index.html

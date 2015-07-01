@@ -33,7 +33,7 @@ class FavoriteList extends PolymerElement
 		regex += "invlaid_item)";
 
 		String response = await HttpRequest.getString('$serverAddress/getItems?name=$regex&isRegex=true');
-		List<Item> items = decode(JSON.decode(response), Item);
+		List<Item> items = decode(response, type: const TypeHelper<List<Item>>().type);
 
 		results.clear();
 		items.forEach((Item item) => results.add(new SearchResult(item)));
