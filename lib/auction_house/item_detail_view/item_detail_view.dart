@@ -8,8 +8,8 @@ class ItemDetailView extends PolymerElement {
 
 	ItemDetailView.created() : super.created()
 	{
-		new Service(['itemDetailRequest'], (Message m) async {
-			Map response = JSON.decode(await HttpRequest.getString("$serverAddress/getItemByName?name=${m.content}"));
+		new Service(['itemDetailRequest'], (m) async {
+			Map response = JSON.decode(await HttpRequest.getString("$serverAddress/getItemByName?name=${m}"));
 			if(response['iconUrl'] != null) {
 				item = response;
 			} else {

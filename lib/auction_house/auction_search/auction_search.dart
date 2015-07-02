@@ -17,10 +17,10 @@ class AuctionSearch extends PolymerElement {
 		}
 
 		//broadcast the results to anyone who is listening to us
-		new Message('searchUpdate', results);
+		transmit('searchUpdate', results);
 	}
 
-	static Future getAuctions(Map parameters) async	{
+	static Future getAuctions(Map parameters) async {
 		HttpRequest req = await HttpRequest.request('$serverAddress/ah/list',
 		                                            method: "POST", requestHeaders: {"content-type": "application/json"},
 		                                            sendData: JSON.encode(parameters));

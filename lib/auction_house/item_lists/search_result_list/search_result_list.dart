@@ -9,21 +9,21 @@ class SearchResultList extends PolymerElement
 
 	SearchResultList.created() : super.created()
 	{
-		new Service(['searchUpdate'], (Message m) {
+		new Service(['searchUpdate'], (m) {
 			results.clear();
-			m.content.forEach((Item item) => results.add(new SearchResult(item)));
+			m.forEach((Item item) => results.add(new SearchResult(item)));
 		});
 	}
 
 	showDetails(Event event, var detail, Element target) async
 	{
 		String itemName = target.attributes['data-item-name'];
-		new Message('itemDetailRequest', itemName);
+		transmit('itemDetailRequest', itemName);
 
 		//show auctions
 		Map parameters = {'where':"item_name = '$itemName'"};
 		List<Auction> auctions = await AuctionSearch.getAuctions(parameters);
-		new Message('auctionSearchUpdate',auctions);
+		transmit('auctionSearchUpdate',auctions);
 	}
 
 	changeFav(Event event, var detail, InputElement target)
@@ -32,8 +32,8 @@ class SearchResultList extends PolymerElement
 		SearchResult.changeFav(itemName,target.checked);
 
 		if(target.checked)
-			new Message('addFavToList', results.singleWhere((SearchResult result) => result.item.name == itemName));
+			transmit('addFavToList', results.singleWhere((SearchResult result) => result.item.name == itemName));
 		else
-			new Message('removeFavFromList', results.singleWhere((SearchResult result) => result.item.name == itemName));
+			transmit('removeFavFromList', results.singleWhere((SearchResult result) => result.item.name == itemName));
 	}
 }

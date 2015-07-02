@@ -3,21 +3,19 @@ library favorite_list;
 import '../../imports.dart';
 
 @CustomTag('favorite-list')
-class FavoriteList extends PolymerElement
-{
+class FavoriteList extends PolymerElement {
 	@published List<SearchResult> results = toObservable([]);
 	Map<String, String> favSaves = {};
 
-	FavoriteList.created() : super.created()
-	{
+	FavoriteList.created() : super.created() {
 		if(window.localStorage.containsKey('favSaves'))
 			favSaves = JSON.decode(window.localStorage['favSaves']);
 
-		new Service(['addFavToList'], (Message m) {
-			results.add(m.content);
+		new Service(['addFavToList'], (m) {
+			results.add(m);
 		});
-		new Service(['removeFavFromList'], (Message m) {
-			results.removeWhere((SearchResult result) => result.item.name == m.content.item.name);
+		new Service(['removeFavFromList'], (m) {
+			results.removeWhere((SearchResult result) => result.item.name == m.item.name);
 		});
 
 		getItems();
@@ -42,12 +40,12 @@ class FavoriteList extends PolymerElement
 	showDetails(Event event, var detail, Element target) async
 	{
 		String itemName = target.attributes['data-item-name'];
-		new Message('itemDetailRequest', itemName);
+		transmit('itemDetailRequest', itemName);
 
 		//show auctions
 		Map parameters = {'where':"item_name = '$itemName'"};
 		List<Auction> auctions = await AuctionSearch.getAuctions(parameters);
-		new Message('auctionSearchUpdate',auctions);
+		transmit('auctionSearchUpdate', auctions);
 	}
 
 	removeFav(Event event, var detail, Element target) {

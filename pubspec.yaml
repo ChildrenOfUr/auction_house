@@ -9,10 +9,10 @@ dependencies:
   paper_elements: any
   intl: any
   jsonx: "^2.0.0"
-  pump:
-    git:
-      ref: master
-      url: git://github.com/ppvk/pump.git
+  transmit:
+        git:
+          ref: master
+          url: git://github.com/ChildrenOfUr/transmit.git
   cou_toolkit:
     git:
       ref: master

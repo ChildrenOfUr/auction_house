@@ -3,13 +3,11 @@ library auction_result_list;
 import '../../imports.dart';
 
 @CustomTag('auction-result-list')
-class AuctionResultList extends PolymerElement
-{
+class AuctionResultList extends PolymerElement {
 	@published List<Auction> results = toObservable([]);
 
-	AuctionResultList.created() : super.created()
-	{
-		new Service(['auctionSearchUpdate'], (Message m) => results = m.content);
+	AuctionResultList.created() : super.created() {
+		new Service(['auctionSearchUpdate'], (m) => results = m);
 	}
 
 	buyConfirm(Event event, var detail, Element target) {
