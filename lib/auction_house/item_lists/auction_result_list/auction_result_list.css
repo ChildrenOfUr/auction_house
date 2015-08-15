@@ -50,3 +50,14 @@
 .startTime {
     font-weight: bold;
 }
+
+.itemImage {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.itemFrame {
+    text-align: center;
+}

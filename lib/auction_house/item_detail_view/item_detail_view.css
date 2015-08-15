@@ -2,6 +2,14 @@ h1, img {
 	display: inline-block;
 }
 
+img {
+	max-height: 40px;
+	max-width: 40px;
+	width: auto;
+	height: auto;
+	vertical-align: text-bottom;
+}
+
 h1 {
 	margin-left: 20px;
 }
