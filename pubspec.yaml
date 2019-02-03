@@ -11,7 +11,7 @@ dependencies:
   jsonx: "^2.0.0"
   transmit:
         git:
-          ref: master
+          ref: dart-1-backport
           url: git://github.com/ChildrenOfUr/transmit.git
   cou_toolkit:
     git:
